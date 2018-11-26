@@ -49,6 +49,7 @@ public class SortCompare {
             }
             total += time(alg, a);
         }
+        System.out.println("alg: " + alg + ",time: " + total);
         return total;
     }
 

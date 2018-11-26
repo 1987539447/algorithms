@@ -20,6 +20,7 @@ public class SortFactory {
     static {
         ALG_MAP.put("Selection", new SelectionSort());
         ALG_MAP.put("Insertion", new InsertionSort());
+        ALG_MAP.put("Shell", new ShellSort());
     }
 
     public static Sort getSortAlg(String alg) {
