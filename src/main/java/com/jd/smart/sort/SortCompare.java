@@ -40,7 +40,7 @@ public class SortCompare {
      * <b>时间：</b> 2018-11-16 <br/>
      * <b>修改内容：</b>  <br/>
      */
-    public static double timeRandomInpu(String alg, int N, int T) {
+    public static double timeRandomInput(String alg, int N, int T) {
         double total = 0.0;
         Double[] a = new Double[N];
         for (int i = 0; i < T; i++) {

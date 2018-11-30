@@ -21,6 +21,8 @@ public class SortFactory {
         ALG_MAP.put("Selection", new SelectionSort());
         ALG_MAP.put("Insertion", new InsertionSort());
         ALG_MAP.put("Shell", new ShellSort());
+        ALG_MAP.put("MergeUB", new MergeSortUB());
+        ALG_MAP.put("MergeBU", new MergeSortBU());
     }
 
     public static Sort getSortAlg(String alg) {
