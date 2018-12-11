@@ -4,7 +4,9 @@
  */
 package com.jd.smart.sort;
 
+import com.jd.smart.pq.HeapSort;
 import com.jd.smart.util.StdOut;
+import java.util.Arrays;
 
 /**
  * <b>描述：排序调用</b> <br/>
@@ -15,7 +17,15 @@ import com.jd.smart.util.StdOut;
 public class Client {
 
     public static void main(String[] args) {
-        sortCompare(args);
+        String[] a = {"D","X","A","Z","C"};
+        //Sort sort = new SelectionSort();
+        //Sort sort = new InsertionSort();
+        //Sort sort = new ShellSort();
+        Sort sort = new MergeSortBU();
+        //Sort sort = new HeapSort();
+        sort.sort(a);
+        System.out.println(Arrays.asList(a));
+        //sortCompare(args);
     }
 
     private static void sortCompare(String[] args) {

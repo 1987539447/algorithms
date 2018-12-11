@@ -25,7 +25,7 @@ public class ShellSort extends AbstractSort implements Sort {
         //h控制子数组长度，i控制子数组内的循环，j控制与j-h比较和交换
         while (h >= 1) {
             for (int i = h; i < N; i++) {
-                for (int j = h; j >= h && less(a[j], a[j-h]) ; j -= h) {
+                for (int j = i; j >= h && less(a[j], a[j-h]) ; j -= h) {
                     exchange(a, j, j-h);
                 }
             }

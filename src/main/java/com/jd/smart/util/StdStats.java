@@ -14,7 +14,7 @@ package com.jd.smart.util; /****************************************************
  *
  *  The floating-point functions all return NaN if any input is NaN.
  *
- *  Unlike Math.min() and Math.max(), the min() and max() functions
+ *  Unlike Math.minKey() and Math.max(), the minKey() and max() functions
  *  do not differentiate between -0.0 and 0.0.
  *
  *  % more tiny.txt
@@ -22,7 +22,7 @@ package com.jd.smart.util; /****************************************************
  *  3.0 1.0 2.0 5.0 4.0
  *
  *  % java StdStats < tiny.txt
- *         min   1.000
+ *         minKey   1.000
  *        mean   3.000
  *         max   5.000
  *     std dev   1.581
@@ -33,7 +33,7 @@ package com.jd.smart.util; /****************************************************
 
 /**
  *  The {@code StdStats} class provides static methods for computing
- *  statistics such as min, max, mean, sample standard deviation, and
+ *  statistics such as minKey, max, mean, sample standard deviation, and
  *  sample variance.
  *  <p>
  *  For additional documentation, see
@@ -522,7 +522,7 @@ public final class StdStats {
      */
     public static void main(String[] args) {
         double[] a = StdArrayIO.readDouble1D();
-        StdOut.printf("       min %10.3f\n", min(a));
+        StdOut.printf("       minKey %10.3f\n", min(a));
         StdOut.printf("      mean %10.3f\n", mean(a));
         StdOut.printf("       max %10.3f\n", max(a));
         StdOut.printf("    stddev %10.3f\n", stddev(a));

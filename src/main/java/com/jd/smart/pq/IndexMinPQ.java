@@ -35,8 +35,8 @@ public class IndexMinPQ<T extends Comparable<T>>  implements IndexPQ<T> {
     public void insert(int k, T t) {
         n++;
         keys[k] = t;
-        qp[k] = n;
         pq[n] = k;
+        qp[k] = n;
         swim(n);
     }
 
@@ -59,27 +59,38 @@ public class IndexMinPQ<T extends Comparable<T>>  implements IndexPQ<T> {
 
     @Override
     public void delete(int k) {
-
+        int index = qp[k];
+        exchange(index, n--);
+        swim(index);
+        sink(index);
+        keys[k] = null;
+        qp[k] = -1;
     }
 
     @Override
-    public T min() {
-        return null;
+    public T minKey() {
+        return keys[pq[1]];
     }
 
     @Override
     public int minIndex() {
-        return 0;
+        return pq[1];
     }
 
     @Override
     public int delMin() {
-        return 0;
+        int min = pq[1];
+        exchange(1, n--);
+        sink(1);
+        qp[min] = -1;
+        keys[min] = null;
+        pq[n+1] = -1;
+        return min;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return n == 0;
     }
 
     @Override

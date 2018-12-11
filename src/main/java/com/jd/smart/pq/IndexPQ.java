@@ -15,7 +15,7 @@ public interface IndexPQ<T extends Comparable<T>> {
     void changeKey(int k, T t);
     boolean contains(int k);
     void delete(int k);
-    T min();
+    T minKey();
     int minIndex();
     int delMin();
     boolean isEmpty();

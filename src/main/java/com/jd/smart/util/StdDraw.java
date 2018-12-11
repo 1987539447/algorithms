@@ -239,7 +239,7 @@ import javax.swing.KeyStroke;
  *  <ul>
  *  <li> {@link #setXscale(double xmin, double xmax)}
  *  <li> {@link #setYscale(double ymin, double ymax)}
- *  <li> {@link #setScale(double min, double max)}
+ *  <li> {@link #setScale(double minKey, double max)}
  *  </ul>
  *  <p>
  *  The arguments are the coordinates of the minimum and maximum 
@@ -753,11 +753,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      *
      * @param  min the minimum value of the <em>x</em>-scale
      * @param  max the maximum value of the <em>x</em>-scale
-     * @throws IllegalArgumentException if {@code (max == min)}
+     * @throws IllegalArgumentException if {@code (max == minKey)}
      */
     public static void setXscale(double min, double max) {
         double size = max - min;
-        if (size == 0.0) throw new IllegalArgumentException("the min and max are the same");
+        if (size == 0.0) throw new IllegalArgumentException("the minKey and max are the same");
         synchronized (mouseLock) {
             xmin = min - BORDER * size;
             xmax = max + BORDER * size;
@@ -769,11 +769,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      *
      * @param  min the minimum value of the <em>y</em>-scale
      * @param  max the maximum value of the <em>y</em>-scale
-     * @throws IllegalArgumentException if {@code (max == min)}
+     * @throws IllegalArgumentException if {@code (max == minKey)}
      */
     public static void setYscale(double min, double max) {
         double size = max - min;
-        if (size == 0.0) throw new IllegalArgumentException("the min and max are the same");
+        if (size == 0.0) throw new IllegalArgumentException("the minKey and max are the same");
         synchronized (mouseLock) {
             ymin = min - BORDER * size;
             ymax = max + BORDER * size;
@@ -785,11 +785,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      *
      * @param  min the minimum value of the <em>x</em>- and <em>y</em>-scales
      * @param  max the maximum value of the <em>x</em>- and <em>y</em>-scales
-     * @throws IllegalArgumentException if {@code (max == min)}
+     * @throws IllegalArgumentException if {@code (max == minKey)}
      */
     public static void setScale(double min, double max) {
         double size = max - min;
-        if (size == 0.0) throw new IllegalArgumentException("the min and max are the same");
+        if (size == 0.0) throw new IllegalArgumentException("the minKey and max are the same");
         synchronized (mouseLock) {
             xmin = min - BORDER * size;
             xmax = max + BORDER * size;
