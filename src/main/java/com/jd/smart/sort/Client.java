@@ -21,8 +21,9 @@ public class Client {
         //Sort sort = new SelectionSort();
         //Sort sort = new InsertionSort();
         //Sort sort = new ShellSort();
-        Sort sort = new MergeSortBU();
-        //Sort sort = new HeapSort();
+        //Sort sort = new MergeSortBU();
+        //Sort sort = new MergeSortUB();
+        Sort sort = new HeapSort();
         sort.sort(a);
         System.out.println(Arrays.asList(a));
         //sortCompare(args);

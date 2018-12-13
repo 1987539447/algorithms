@@ -17,7 +17,7 @@ public abstract class AbstractMergeSort extends AbstractSort {
 
     //归并：数组左、右均已经有序
     protected void merge(Comparable[] a, int lo, int mid, int hi) {
-        int i = lo, j = mid;
+        int i = lo, j = mid+1;
         //复制数据到辅助数组
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];

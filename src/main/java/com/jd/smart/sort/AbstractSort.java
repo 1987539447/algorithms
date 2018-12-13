@@ -27,9 +27,9 @@ public abstract class AbstractSort implements Sort {
      * 交换数组元素i和j
      * **/
     protected void exchange(Comparable[] a, int i, int j) {
-        Comparable tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
+        Comparable tmp = a[i-1];
+        a[i-1] = a[j-1];
+        a[j-1] = tmp;
     }
 
     /**

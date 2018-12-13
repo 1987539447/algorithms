@@ -33,14 +33,18 @@ public class HeapSort extends AbstractSort implements Sort {
 
         while (2*k <= N) {
             int j = 2*k;
-            if (j < N && less(j, j+1)){
+            if (j < N && less(a, j, j+1)){
                 j++;
             }
-            if (!less(k, j)) {
+            if (!less(a, k, j)) {
                 break;
             }
             exchange(a, k, j);
             k = j;
         }
+    }
+
+    private boolean less(Comparable[] a, int i, int j) {
+        return a[i-1].compareTo(a[j-1]) < 0;
     }
 }
