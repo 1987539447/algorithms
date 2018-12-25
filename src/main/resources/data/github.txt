@@ -1,0 +1,21 @@
+Overview
+Algorithms 4/e textbook
+This public repository contains the Java source code for the algorithms and clients in the textbook Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne. This is the official version—it is actively maintained and updated by the authors. The programs are organized in the package edu.princeton.cs.algs4. If you need only the class files (and not the source code), you can use algs4.jar instead.
+Design goals
+Our original goal was to cover the 50 algorithms that every programmer should know. We use the word programmer to refer to anyone engaged in trying to accomplish something with the help of a computer, including scientists, engineers, and applications developers, not to mention college students in science, engineering, and computer science. The code is optimized for clarity, portability, and efficiency. While some of our implementations are as fast as (or faster than) their counterparts in java.util, our main goal is to express the core algorithmic ideas in an elegant and simple manner. While we embrace some advanced Java features (such as generics and iterators), we avoid those that interfere with the exposition (such as inheritance and concurrency).
+Build managers
+This repository is intended for use with either the Maven or Gradle build managers. It can be run from either the command line or integrated into Eclipse, NetBeans, and IntelliJ. You can also access it via Bintray.
+Coursera Algorithms, Part I and II students
+Feel free to use this public repository to develop solutions to the programming assignments. However, please do not store solutions to programming assignments in public repositories.
+Copyright
+Copyright © 2000–2017 by Robert Sedgewick and Kevin Wayne.
+License
+This code is released under GPLv3.
+Contribute to this repository
+This wishlist.txt contains a list of algorithms and data structures that we would like to add to the repository. Indeed, several of the algorithms and data structures in this repository were contributed by others. If interested, please follow the same style as the code in the repository and thoroughly test your code before contacting us.
+Support for other programming languages
+Some of the code in this repository has been translated to other languages:
+Scala by Gary Struthers
+.NET by Quoc Thai
+Credits
+Thanks to Peter Korgan for Maven and Gradle support.
