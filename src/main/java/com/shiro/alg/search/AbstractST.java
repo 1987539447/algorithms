@@ -3,7 +3,7 @@ package com.shiro.alg.search;
 
 /**
  * <b>描述：抽象实现</b> <br/>
- * @author <b>作者：</b> cdzhansihu@jd.com<br/>
+ *
  * <b>时间：</b>2018-12-21<br/>
  *
  */

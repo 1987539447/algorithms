@@ -4,7 +4,7 @@ package com.shiro.alg.search;
 /**
  * <b>描述：符号表Symbol Table模型API</b> <br/>
  * key value均不能为空，get时不存在返回空
- * @author <b>作者：</b> cdzhansihu@jd.com<br/>
+ *
  * <b>时间：</b>2018-12-21<br/>
  *
  */

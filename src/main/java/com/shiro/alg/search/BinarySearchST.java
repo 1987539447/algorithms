@@ -8,7 +8,6 @@ import java.util.Queue;
 
 /**
  * <b>描述：有序数组实现</b> <br/>
- * @author <b>作者：</b> cdzhansihu@jd.com<br/>
  * <b>时间：</b>2018-12-24<br/>
  *
  */
@@ -42,6 +41,7 @@ public class BinarySearchST<K extends Comparable<K>,V> extends AbstractST<K , V>
         }
         keys[i] = key;
         values[i] = value;
+        size++;
     }
 
     @Override

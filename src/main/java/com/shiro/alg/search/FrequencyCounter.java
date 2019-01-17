@@ -6,7 +6,6 @@ import com.shiro.alg.util.StdOut;
 
 /**
  * <b>描述：高频词汇查找</b> <br/>
- * @author <b>作者：</b> cdzhansihu@jd.com<br/>
  * <b>时间：</b>2018-12-21<br/>
  *
  */

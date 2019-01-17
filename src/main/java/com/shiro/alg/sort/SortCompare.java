@@ -15,9 +15,9 @@ public class SortCompare {
     /**
      *
      * <b>描述：使用一个算法进行排序，并计算耗时</b> <br/>
-     * @author <b>创建人：</b> cdzhansihu@jd.com<br/>
+     * @author <b>创建人：</b> <br/>
      * <b>创建时间：</b> 2018-11-16 <br/>
-     * <b>修改人：</b> cdzhansihu@jd.com<br/>
+     * <b>修改人：</b> <br/>
      * <b>时间：</b> 2018-11-16 <br/>
      * <b>修改内容：</b>  <br/>
      */
@@ -31,9 +31,9 @@ public class SortCompare {
     /**
      *
      * <b>描述：使用算法alg将T个长度为N的数组排序</b> <br/>
-     * @author <b>创建人：</b> cdzhansihu@jd.com<br/>
+     * @author <b>创建人：</b> <br/>
      * <b>创建时间：</b> 2018-11-16 <br/>
-     * <b>修改人：</b> cdzhansihu@jd.com<br/>
+     * <b>修改人：</b> <br/>
      * <b>时间：</b> 2018-11-16 <br/>
      * <b>修改内容：</b>  <br/>
      */

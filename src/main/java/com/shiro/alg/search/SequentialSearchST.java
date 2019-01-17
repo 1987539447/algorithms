@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * <b>描述：无序链表实现</b> <br/>
- * @author <b>作者：</b> cdzhansihu@jd.com<br/>
+ *
  * <b>时间：</b>2018-12-21<br/>
  *
  */
