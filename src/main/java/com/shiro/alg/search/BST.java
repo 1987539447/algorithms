@@ -1,6 +1,11 @@
 
 package com.shiro.alg.search;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * <b>描述：二叉树符号表</b> <br/>
  * <b>时间：</b>2019-01-14<br/>
@@ -49,7 +54,33 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public void delete(K key) {
+        root = delete(root, key);
+    }
 
+    //删除后提升右子树最小
+    private Node delete(Node root, K key) {
+        if (root == null) {
+            return null;
+        }
+        int cmp = key.compareTo(root.key);
+        if (cmp > 0) {
+            root.right = delete(root.right, key);
+        } else if (cmp < 0){
+            root.left = delete(root.left, key);
+        } else {
+            if (root.left == null) {
+                return root.right;
+            }
+            if (root.right == null) {
+                return root.left;
+            }
+            Node t = root;
+            root = min(root.right);
+            root.right = deleteMin(root.right);
+            root.left = t.left;
+        }
+        root.size = size(root.left) + size(root.right) + 1;
+        return root;
     }
 
     public boolean contains(K key) {
@@ -83,11 +114,22 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public K max() {
-        return null;
+        return max(root).key;
+    }
+
+    private Node max(Node root) {
+        if (root.right == null) {
+            return root;
+        }
+        return max(root.right);
     }
 
     public K floor(K key) {
-        return floor(root, key).key;
+        Node x = floor(root, key);
+        if (x == null) {
+            return null;
+        }
+        return x.key;
     }
 
     private Node floor(Node root, K key) {
@@ -109,7 +151,29 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public K ceiling(K key) {
-        return null;
+        Node x = ceiling(root, key);
+        if (x == null) {
+            return null;
+        }
+        return x.key;
+    }
+
+    private Node ceiling(Node root, K key) {
+        if (root == null) {
+            return null;
+        }
+        int cmp = key.compareTo(root.key);
+        if (cmp > 0) {
+            return ceiling(root.right, key);
+        } else if (cmp == 0) {
+            return root;
+        }
+        Node ceilRight = ceiling(root.left, key);
+        if (ceilRight == null) {
+            return root;
+        } else {
+            return ceilRight;
+        }
     }
 
     public int rank(K key) {
@@ -162,7 +226,16 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public void deleteMax() {
+        root = deleteMax(root);
+    }
 
+    private Node deleteMax(Node root) {
+        if (root.right == null) {
+            return root.left;
+        }
+        root.right = deleteMax(root.right);
+        root.size = size(root.left) + size(root.right) + 1;
+        return root;
     }
 
     public int size(K lo, K hi) {
@@ -170,11 +243,31 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public Iterable<K> keys(K lo, K hi) {
-        return null;
+        List<K> list = new ArrayList<>();
+        keys(root, list, lo, hi);
+        return list;
+    }
+
+    private void keys(Node root, List<K> list, K lo, K hi) {
+        if (root == null) {
+            return;
+        }
+        int cmpLow = lo.compareTo(root.key);
+        int cmpHigh = hi.compareTo(root.key);
+        if (cmpLow < 0 ) {
+            keys(root.left, list, lo, hi);
+        }
+        if (cmpLow <= 0 && cmpHigh >=0) {
+            list.add(root.key);
+        }
+        if (cmpHigh > 0) {
+            keys(root.right, list, lo, hi);
+        }
+
     }
 
     public Iterable<K> keys() {
-        return null;
+        return keys(min(), max());
     }
 
     //二叉树节点

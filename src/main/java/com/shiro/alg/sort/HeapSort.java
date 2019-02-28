@@ -1,5 +1,5 @@
 
-package com.shiro.alg.pq;
+package com.shiro.alg.sort;
 
 import com.shiro.alg.sort.AbstractSort;
 import com.shiro.alg.sort.Sort;

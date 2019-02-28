@@ -1,7 +1,6 @@
 
 package com.shiro.alg.sort;
 
-import com.shiro.alg.pq.HeapSort;
 import com.shiro.alg.util.StdOut;
 import java.util.Arrays;
 
