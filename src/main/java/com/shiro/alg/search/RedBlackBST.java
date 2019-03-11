@@ -5,21 +5,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <b>描述：二叉树符号表</b> <br/>
- * <b>时间：</b>2019-01-14<br/>
+ * <b>描述：红黑树实现</b> <br/>
+ * @date <b>时间：</b>2019-03-06<br/>
  *
  */
-public class BST<K extends Comparable<K>, V> {
+@SuppressWarnings("all")
+public class RedBlackBST<K extends Comparable<K>, V> {
+
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
 
     private Node root;
 
     public void put(K key, V value) {
         root = put(root, key, value);
+        root.color = BLACK;
     }
 
     private Node put(Node root, K key, V value) {
         if (root == null) {
-            return new Node(key, value, 1);
+            return new Node(key, value, 1, RED);
         }
         int cmp = key.compareTo(root.key);
         if (cmp > 0) {
@@ -28,6 +33,15 @@ public class BST<K extends Comparable<K>, V> {
             root.left = put(root.left, key, value);
         } else {
             root.value = value;
+        }
+        if (!isRed(root.left) && isRed(root.right)) {
+            root = rotateLeft(root);
+        }
+        if (isRed(root.left) && isRed(root.left.left)) {
+            root = rotateRight(root);
+        }
+        if (isRed(root.left) && isRed(root.right)) {
+            flipColors(root);
         }
         root.size = size(root.left) + size(root.right) + 1;
         return root;
@@ -211,16 +225,53 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public void deleteMin() {
+        if (!isRed(root.left) && !isRed(root.right)) {
+            root.color = RED;
+        }
         root = deleteMin(root);
+        if (!isEmpty()) {
+            root.color = BLACK;
+        }
     }
 
     private Node deleteMin(Node root) {
         if (root.left == null) {
-            return root.right;
+            return null;
+        }
+        if (!isRed(root.left) && isRed(root.left.left)) {
+            root = moveRedLeft(root);
         }
         root.left = deleteMin(root.left);
+        return blance(root);
+    }
+
+    private Node blance(Node root) {
+        if (isRed(root.right)) {
+            root = rotateLeft(root);
+        }
+        if (isRed(root.left) && isRed(root.left.left)) {
+            root = rotateRight(root);
+        }
+        if (isRed(root.left) && isRed(root.right)) {
+            flipColors(root);
+        }
         root.size = size(root.left) + size(root.right) + 1;
         return root;
+    }
+
+    private Node moveRedLeft(Node root) {
+        reverseColors(root);
+        if (isRed(root.right) && isRed(root.right.left)) {
+            root.right = rotateRight(root.right);
+            root = rotateLeft(root);
+        }
+        return root;
+    }
+
+    private void reverseColors(Node root) {
+        root.color = !root.color;
+        root.left.color = !root.left.color;
+        root.right.color = !root.right.color;
     }
 
     public void deleteMax() {
@@ -274,11 +325,49 @@ public class BST<K extends Comparable<K>, V> {
         private V value;
         private Node left, right;
         private int size;
+        private boolean color;
 
-        public Node(K key, V value, int size) {
+        public Node(K key, V value, int size, boolean color) {
             this.key = key;
             this.value = value;
             this.size = size;
+            this.color = color;
         }
+    }
+
+    private boolean isRed(Node x) {
+        if (x == null) {
+            return false;
+        }
+        return x.color == RED;
+    }
+
+    //拉平-滑动-拉高
+    private Node rotateLeft(Node root) {
+        Node x = root.right;
+        root.right = x.left;
+        x.left = root;
+        x.color = root.color;
+        root.color = RED;
+        x.size = root.size;
+        root.size = 1 + size(root.left) + size(root.right);
+        return x;
+    }
+
+    private Node rotateRight(Node root) {
+        Node x = root.left;
+        root.left = x.right;
+        x.right = root;
+        x.color = root.color;
+        root.color = RED;
+        x.size = root.size;
+        root.size = 1 + size(root.left) + size(root.right);
+        return x;
+    }
+
+    private void flipColors(Node root) {
+        root.color = RED;
+        root.left.color = BLACK;
+        root.right.color = BLACK;
     }
 }
