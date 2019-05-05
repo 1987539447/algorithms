@@ -26,7 +26,7 @@ public class Cycle {
         for (int w : graph.adj(v)) {
            if (!marked[w]) {
                dfs(graph, w, u);
-           } else if (w == u){
+           } else if (w == u){//??
               hasCycle = true;
            }
         }
