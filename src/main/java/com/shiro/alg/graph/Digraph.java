@@ -56,7 +56,7 @@ public class Digraph {
         Digraph R = new Digraph(this.V);
         for (int v = 0; v < V; v++) {
             for (Integer w: adj[v]) {
-               R.addEdge(v, w);
+               R.addEdge(w, v);
             }
         }
         return R;
